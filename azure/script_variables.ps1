@@ -21,3 +21,9 @@ $locationName = "Canada Central"
 # Resource Group name.
 $resourceGroupName = "rim-demo-formrecog"
 $resourceGroupRawName = "rimdemoformrecog"
+
+# Cosmos DB Database Account name.
+$cosmosDbAccountName = "$resourceGroupName-cosmos"
+
+# Cosmos DB Database name.
+$cosmosDbDatabaseName = "FormRecog"
