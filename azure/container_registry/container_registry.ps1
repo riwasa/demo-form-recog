@@ -1,8 +1,8 @@
 # *****************************************************************************
 #
-# File:        script-variables.ps1
+# File:        container_registry.ps1
 #
-# Description: Sets variables used in other scripts.
+# Description: Creates a Container Registry.
 #
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 # IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -14,19 +14,16 @@
 # 
 # *****************************************************************************
 
-# Azure region.
-$location = "canadacentral"
-$locationName = "Canada Central"
+# Get script variables.
+. $PSScriptRoot\..\script_variables.ps1
 
-# Resource Group name.
-$resourceGroupName = "rim-demo-formrecog"
-$resourceGroupRawName = "rimdemoformrecog"
+# Create a Container Registry.
+Write-Host "Creating a Container Registry"
 
-# Container Registry name.
-$containerRegistryName = "$resourceGroupRawName" + "acr"
-
-# Cosmos DB Database Account name.
-$cosmosDbAccountName = "$resourceGroupName-cosmos"
-
-# Cosmos DB Database name.
-$cosmosDbDatabaseName = "FormRecog"
+az deployment group create `
+  --name "container_registry" `
+  --resource-group "$resourceGroupName" `
+  --template-file "$PSScriptRoot\container_registry.bicep" `
+  --parameters "$PSScriptRoot\container_registry.azuredeploy.parameters.json" `
+  --parameters containerRegistryName="$containerRegistryName" `
+               location="$location"
