@@ -22,6 +22,12 @@ $locationName = "Canada Central"
 $resourceGroupName = "rim-demo-formrecog"
 $resourceGroupRawName = "rimdemoformrecog"
 
+# Application Insights Component name.
+$appInsightsComponentName = "$resourceGroupName-appi"
+
+# Application Insights Log Analytics Workspace name.
+$appInsightsLogAnalyticsWorkspaceName = "$resourceGroupName-appi-law"
+
 # Container Registry name.
 $containerRegistryName = "$resourceGroupRawName" + "acr"
 
