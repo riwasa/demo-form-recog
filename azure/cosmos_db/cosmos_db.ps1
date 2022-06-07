@@ -24,7 +24,7 @@ az deployment group create `
   --name "cosmos_db" `
   --resource-group "$resourceGroupName" `
   --template-file "$PSScriptRoot\cosmos_db.bicep" `
-  --parameters "$PSScriptRoot\cosmos_db.azuredeploy.parameters.json" `
+  --parameters "$PSScriptRoot\cosmos_db.parameters.json" `
   --parameters accountName="$cosmosDbAccountName" `
                databaseName="$cosmosDbDatabaseName" `
                location="$location" `

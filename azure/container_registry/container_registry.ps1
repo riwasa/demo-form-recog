@@ -24,6 +24,6 @@ az deployment group create `
   --name "container_registry" `
   --resource-group "$resourceGroupName" `
   --template-file "$PSScriptRoot\container_registry.bicep" `
-  --parameters "$PSScriptRoot\container_registry.azuredeploy.parameters.json" `
+  --parameters "$PSScriptRoot\container_registry.parameters.json" `
   --parameters containerRegistryName="$containerRegistryName" `
                location="$location"
