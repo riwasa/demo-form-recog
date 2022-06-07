@@ -1,8 +1,8 @@
 # *****************************************************************************
 #
-# File:        application_insights.ps1
+# File:        container_app_environment.ps1
 #
-# Description: Creates an Application Insights Component.
+# Description: Creates a Container App Environment.
 #
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 # IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -17,14 +17,13 @@
 # Get script variables.
 . $PSScriptRoot\..\script_variables.ps1
 
-# Create an Application Insights Component.
-Write-Host "Creating an Application Insights Component"
+# Create a Container App Environment.
+Write-Host "Creating a Container App Environment"
 
 az deployment group create `
-  --name "application_insights" `
+  --name "container_app_environment" `
   --resource-group "$resourceGroupName" `
-  --template-file "$PSScriptRoot\application_insights.bicep" `
-  --parameters "$PSScriptRoot\application_insights.parameters.json" `
-  --parameters applicationInsightsName="$appInsightsComponentName" `
+  --template-file "$PSScriptRoot\container_app_environment.bicep" `
+  --parameters containerAppEnvironmentName="$containerAppEnvironmentName" `
                logAnalyticsName="$logAnalyticsWorkspaceName" `
                location="$location"

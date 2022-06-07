@@ -23,19 +23,6 @@ param logAnalyticsName string
 @description('The location of the resources.')
 param location string
 
-@description('The name of the Log Analytics Workspace SKU.')
-@allowed([
-  'CapacityReservation'
-  'Free'
-  'LACluster'
-  'PerGB2018'
-  'PerNode'
-  'Premium'
-  'Standalone'
-  'Standard'
-])
-param logAnalyticsSkuName string
-
 @description('Enables public network access for ingestion.')
 @allowed([
   'Disabled'
@@ -50,15 +37,9 @@ param publicNetworkAccessForIngestion string
 ])
 param publicNetworkAccessForQuery string
 
-// Create a Log Analytics Workspace.
-resource logAnalyticsWorkspace 'Microsoft.OperationalInsights/workspaces@2021-06-01' = {
+// Get the existing Log Analytics Workspace.
+resource logAnalyticsWorkspace 'Microsoft.OperationalInsights/workspaces@2021-12-01-preview' existing = {
   name: logAnalyticsName
-  location: location
-  properties: {
-    sku: {
-      name: logAnalyticsSkuName
-    }
-  }
 }
 
 // Create an Application Insights Component.

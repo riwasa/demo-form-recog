@@ -25,8 +25,8 @@ $resourceGroupRawName = "rimdemoformrecog"
 # Application Insights Component name.
 $appInsightsComponentName = "$resourceGroupName-appi"
 
-# Application Insights Log Analytics Workspace name.
-$appInsightsLogAnalyticsWorkspaceName = "$resourceGroupName-appi-law"
+# Container App Environment name.
+$containerAppEnvironmentName = "$resourceGroupName-contappenv"
 
 # Container Registry name.
 $containerRegistryName = "$resourceGroupRawName" + "acr"
@@ -36,3 +36,6 @@ $cosmosDbAccountName = "$resourceGroupName-cosmos"
 
 # Cosmos DB Database name.
 $cosmosDbDatabaseName = "FormRecog"
+
+# Log Analytics Workspace name.
+$logAnalyticsWorkspaceName = "$resourceGroupName-law"
